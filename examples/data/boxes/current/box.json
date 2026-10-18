@@ -1,0 +1,11 @@
+{
+  "id": "box-20261018-071838-002",
+  "number": 2,
+  "created_at": "2026-10-18T13:18:38.325Z",
+  "target": 2,
+  "deck_ids": [
+    "d-20261018-071838-court-packet-checklist"
+  ],
+  "sealed": false,
+  "sealed_at": null
+}

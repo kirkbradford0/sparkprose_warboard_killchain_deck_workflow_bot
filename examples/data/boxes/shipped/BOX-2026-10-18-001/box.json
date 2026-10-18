@@ -1,0 +1,15 @@
+{
+  "id": "box-20261018-071838-001",
+  "number": 1,
+  "created_at": "2026-10-18T13:18:38.225Z",
+  "target": 2,
+  "deck_ids": [
+    "d-20261018-071838-reentry-housing-letters",
+    "d-20261018-071838-interview-follow-up-system"
+  ],
+  "sealed": false,
+  "sealed_at": null,
+  "shipped_at": "2026-10-18T13:18:38.324Z",
+  "sealed_early": false,
+  "shipped_name": "BOX-2026-10-18-001"
+}

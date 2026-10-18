@@ -1,0 +1,10 @@
+node_modules/
+/data/
+/.tmp-test/
+/.tmp-selftest/
+/.tmp-seed/
+/.tmp-shot/
+security/report.json
+config/settings.json
+config/settings.selftest.json
+*.log

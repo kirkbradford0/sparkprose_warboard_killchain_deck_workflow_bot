@@ -1,0 +1,24 @@
+{
+  "name": "warboard-box",
+  "productName": "Warboard Box",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Turn messy AI warboards into locked, shippable decks and boxes of decks. NEON-90 edition.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "security": "node security/run.js --gate",
+    "security:baseline": "node security/run.js --baseline",
+    "security:json": "node security/run.js --gate --json",
+    "prestart": "node security/run.js --gate --quiet",
+    "pretest": "node security/run.js --gate --quiet",
+    "test": "node security/self-test.js && node test/core.test.js && node test/ui-contract.test.js",
+    "seed": "node scripts/seed-warboards.js",
+    "demo": "node scripts/demo.js",
+    "publish:github": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-to-github.ps1",
+    "selftest": "electron . --selftest"
+  },
+  "devDependencies": {
+    "electron": "44.9.0"
+  }
+}

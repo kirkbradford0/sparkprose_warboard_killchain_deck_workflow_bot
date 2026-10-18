@@ -1,0 +1,37 @@
+name: verify
+
+# Every push/PR runs the same gate the launcher runs, plus the full test set.
+# Electron's binary download is skipped: the tests do not need a window.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    env:
+      ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install (no install scripts)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Recursive security gate
+        run: node security/run.js --gate
+
+      - name: Security mutation tests
+        run: node security/self-test.js
+
+      - name: Core model tests
+        run: node test/core.test.js
+
+      - name: UI wiring tests
+        run: node test/ui-contract.test.js

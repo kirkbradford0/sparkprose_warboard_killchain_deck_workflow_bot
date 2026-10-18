@@ -1,0 +1,7 @@
+# Bytes are pinned on purpose.
+# The recursive security gate hash-chains every tracked file, so line-ending
+# conversion between commit and checkout would look like tampering.
+* -text
+
+# Windows launcher stays exactly as written.
+*.cmd -text

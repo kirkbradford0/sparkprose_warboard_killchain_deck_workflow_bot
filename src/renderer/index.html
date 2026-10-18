@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WARBOARD BOX // NEON-90</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 90s cyberpunk scene: horizon, perspective grid, neon haze -->
+  <div class="scene" aria-hidden="true">
+    <div class="horizon"></div>
+    <div class="grid"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- boot sequence -->
+  <div class="boot" id="boot">
+    <div class="boot-inner">
+      <div class="boot-head">SPARKPROSE // WARBOARD OS <span>v1.0 NEON-90</span></div>
+      <pre class="boot-log">
+[ OK ] mounting plain-file substrate
+[ OK ] warboard bus ........... online
+[ OK ] deck converter ......... deterministic
+[ OK ] box lock service ....... armed
+[ OK ] recursive security ..... <span class="amber">SCANNING</span>
+[ OK ] electron feed .......... <span class="lime">STABLE</span>
+
+<span class="dim">&gt; hello, operator. your messy thinking has a destination.</span></pre>
+      <div class="boot-actions">
+        <button id="boot-skip" type="button">[ ENTER OPERATOR CONSOLE ]</button>
+        <span class="boot-meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <header class="titlebar">
+      <div class="controls" aria-hidden="true"><i></i><i></i><i></i></div>
+
+      <div class="brand">
+        <div class="core" aria-hidden="true"></div>
+        <div class="brandtext">
+          <h1>WARBOARD <span>BOX</span></h1>
+          <p>SPARKPROSE // NEON-90 DECK OS</p>
+        </div>
+      </div>
+
+      <nav class="tabs" id="tabs" aria-label="Sections">
+        <button data-view="warboards" class="on">WARBOARDS</button>
+        <button data-view="decks">DECKS</button>
+        <button data-view="box">BOX</button>
+        <button data-view="shipped">SHIPPED</button>
+        <button data-view="settings">SETTINGS</button>
+      </nav>
+
+      <div class="titlemeta">
+        <div class="feed"><span class="led lime"></span> ELECTRON FEED</div>
+        <div class="clock" id="clock">--:--:--</div>
+        <div class="pill" id="pill-box">BOX —</div>
+        <div class="pill" id="pill-mode">LOCAL</div>
+      </div>
+    </header>
+
+    <div class="ticker" aria-hidden="true"><span id="ticker">WARBOARD BOX // plain files in, locked decks out // no database // ship when the box is full or sealed</span></div>
+
+    <main>
+      <!-- ============================== WARBOARDS ============================== -->
+      <section class="view on" id="view-warboards">
+        <div class="split">
+          <aside class="listpane panel">
+            <div class="pane-head">
+              <h2>ACTIVE WARBOARDS</h2>
+              <span class="count" id="warboard-count">0</span>
+            </div>
+            <div class="newrow">
+              <input id="new-title" type="text" maxlength="120" placeholder="name the warboard…" autocomplete="off">
+              <button id="new-warboard" class="primary">NEW WARBOARD</button>
+            </div>
+            <div class="list" id="warboard-list"></div>
+          </aside>
+
+          <div class="detailpane panel" id="warboard-detail">
+            <div class="empty" id="warboard-empty">
+              <b>NO WARBOARD SELECTED</b>
+              <p>A warboard is the messy room: paste chat logs, notes, half-ideas, dropped files. Convert it when the thinking is done — then four clean files walk out.</p>
+            </div>
+
+            <div id="warboard-work" hidden>
+              <div class="pane-head">
+                <h2 id="wb-title">—</h2>
+                <div class="meta" id="wb-meta"></div>
+              </div>
+
+              <label class="fieldlabel" for="wb-notes">RAW NOTES — PASTE ANYTHING · AUTOSAVES</label>
+              <textarea id="wb-notes" class="notes" spellcheck="true" placeholder="Paste the chat log, the rant, the plan fragments…"></textarea>
+              <div class="saveline" id="wb-save">saved</div>
+
+              <div class="dropzone" id="wb-drop">
+                <span class="dropmark" aria-hidden="true">⤓</span>
+                <b>DROP FILES OR FOLDERS HERE</b>
+                <span class="dim">or</span>
+                <button id="wb-add-files" class="ghost">CHOOSE FILES / FOLDERS</button>
+              </div>
+
+              <div class="attachhead">
+                <label class="fieldlabel">ATTACHMENTS <span id="wb-attach-count">0</span></label>
+              </div>
+              <div class="chips" id="wb-attachments"></div>
+
+              <div class="actions">
+                <button id="wb-convert" class="primary big">CONVERT TO DECK →</button>
+                <span class="hint">Creates 00-README, 01-source-notes, 02-structured, 03-actions and copies attachments. Nothing locks yet.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================ DECKS ================================ -->
+      <section class="view" id="view-decks">
+        <div class="split">
+          <aside class="listpane panel">
+            <div class="pane-head">
+              <h2>DECK REGISTRY</h2>
+              <span class="count" id="deck-count">0</span>
+            </div>
+            <div class="list" id="deck-list"></div>
+          </aside>
+
+          <div class="detailpane panel" id="deck-detail">
+            <div class="empty" id="deck-empty">
+              <b>NO DECK SELECTED</b>
+              <p>A deck is the clean version: README, raw source notes, structured notes, actions. Review all four, then lock it into the box.</p>
+            </div>
+
+            <div id="deck-work" hidden>
+              <div class="pane-head">
+                <h2 id="deck-title">—</h2>
+                <div class="meta" id="deck-meta"></div>
+              </div>
+
+              <div class="lockbanner" id="deck-lockbanner" hidden>
+                <b>🔒 LOCKED</b>
+                <span>This deck counts toward the box. Unlocking removes it from the box and re-opens editing.</span>
+                <button id="deck-unlock" class="ghost">UNLOCK</button>
+              </div>
+
+              <div class="filetabs" id="deck-filetabs"></div>
+              <textarea id="deck-file" class="notes fileeditor" spellcheck="true"></textarea>
+              <div class="filebar">
+                <span class="saveline" id="deck-save">—</span>
+                <button id="deck-savebtn" class="ghost">SAVE FILE</button>
+                <button id="deck-openfolder" class="ghost">OPEN DECK FOLDER</button>
+              </div>
+
+              <div class="validation" id="deck-validation"></div>
+
+              <div class="confirmrow" id="deck-confirmrow">
+                <label class="check">
+                  <input type="checkbox" id="deck-reviewed">
+                  <span>I reviewed all four files. Lock this deck into the box.</span>
+                </label>
+                <button id="deck-confirm" class="primary big" disabled>CONFIRM &amp; LOCK DECK</button>
+              </div>
+
+              <div class="draftrow" id="deck-draftrow">
+                <button id="deck-delete" class="danger ghost">DELETE DRAFT DECK</button>
+                <span class="hint">Only drafts can be deleted. Locked decks are history.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================= BOX ================================= -->
+      <section class="view" id="view-box">
+        <div class="wide">
+          <div class="bigcount panel">
+            <div>
+              <label class="fieldlabel">CURRENT BOX</label>
+              <div class="countline"><span id="box-count">0</span><span class="slash">/</span><span id="box-target">4</span><span class="decksword">DECKS</span></div>
+            </div>
+            <div class="targetctl">
+              <label class="fieldlabel" for="box-target-input">TARGET SIZE</label>
+              <div class="inline">
+                <input id="box-target-input" type="number" min="1" max="50" step="1">
+                <button id="box-target-save" class="ghost">SET</button>
+              </div>
+              <p class="hint">Flexible per box. Set it to the real scope; ship when it is reached.</p>
+            </div>
+            <div class="shipctl">
+              <div class="progress"><div class="bar" id="box-bar"></div></div>
+              <div class="inline">
+                <button id="box-seal" class="ghost">SEAL EARLY</button>
+                <button id="box-unseal" class="ghost" hidden>UNSEAL</button>
+                <button id="box-ship" class="primary big" disabled>SHIP BOX</button>
+              </div>
+              <p class="hint" id="box-hint"></p>
+            </div>
+          </div>
+
+          <div class="pane-head"><h2>IN THIS BOX</h2><span class="count" id="box-deck-count">0</span></div>
+          <div class="cards" id="box-decks"></div>
+
+          <div class="shipresult" id="ship-result" hidden>
+            <div class="pane-head"><h2>SHIPPED</h2><span class="tagok" id="ship-name"></span></div>
+            <p id="ship-summary"></p>
+            <div class="inline">
+              <button id="ship-open" class="primary">OPEN SHIPPED FOLDER</button>
+              <button id="ship-copy" class="ghost">COPY MANIFEST</button>
+            </div>
+            <pre id="ship-manifest"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============================== SHIPPED =============================== -->
+      <section class="view" id="view-shipped">
+        <div class="wide">
+          <div class="pane-head"><h2>SHIPPED BOXES</h2><span class="count" id="shipped-count">0</span></div>
+          <div class="list big" id="shipped-list"></div>
+          <p class="hint">A shipped box is a dated copy with BOX-MANIFEST.md and SHA-256 per file. Editing the source decks later does not change it.</p>
+        </div>
+      </section>
+
+      <!-- ============================== SETTINGS ============================== -->
+      <section class="view" id="view-settings">
+        <div class="wide settings">
+          <div class="setting panel">
+            <label class="fieldlabel">DATA FOLDER — PLAIN FILES, NO DATABASE</label>
+            <div class="inline">
+              <input id="set-root" type="text" readonly>
+              <button id="set-root-pick" class="ghost">CHANGE…</button>
+              <button id="set-root-open" class="ghost">OPEN</button>
+            </div>
+            <p class="hint">Warboards, decks, boxes and logs live here as ordinary folders.</p>
+          </div>
+
+          <div class="setting panel">
+            <label class="fieldlabel" for="set-target">DEFAULT BOX TARGET</label>
+            <div class="inline">
+              <input id="set-target" type="number" min="1" max="50">
+              <button id="set-target-save" class="ghost">SAVE</button>
+            </div>
+          </div>
+
+          <div class="setting panel">
+            <label class="fieldlabel">TAILSCALE REMOTE VIEW — READ-ONLY</label>
+            <div class="inline">
+              <label class="check"><input type="checkbox" id="set-remote"> enable local view server</label>
+              <input id="set-port" type="number" min="1024" max="65535" step="1">
+              <button id="set-remote-save" class="ghost">APPLY</button>
+            </div>
+            <p class="hint" id="remote-status">—</p>
+            <div class="inline">
+              <button id="open-tailscale-doc" class="ghost">HOW TO REACH IT FROM ANOTHER DEVICE</button>
+            </div>
+          </div>
+
+          <div class="setting panel">
+            <label class="fieldlabel">RULES THIS APP ENFORCES</label>
+            <ul class="rules">
+              <li>All four core files must exist and be non-empty before a deck can lock.</li>
+              <li>Locked decks cannot be edited. Unlocking removes the deck from the current box.</li>
+              <li>No incomplete or unlocked deck can ship inside a box.</li>
+              <li>Shipping writes a dated copy + BOX-MANIFEST.md with SHA-256 per file; then a new box starts.</li>
+              <li>Recursive security gate runs before launch: secrets, remote code, eval, supply chain, IPC boundaries.</li>
+            </ul>
+          </div>
+
+          <div class="setting panel">
+            <label class="fieldlabel">SYSTEM</label>
+            <pre id="about" class="about">—</pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="statusbar">
+      <div id="toast" class="toast" hidden></div>
+      <span class="led lime"></span>
+      <span id="foot-activity" class="foot-left">ready</span>
+      <span class="foot-right" id="foot-mode">locally stored</span>
+      <span class="led amber blink"></span>
+      <span class="foot-right">NEON-90 // SPARKPROSE DESIGN DEPT</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
