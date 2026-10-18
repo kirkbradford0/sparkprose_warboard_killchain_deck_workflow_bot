@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-18T23:14:15.782Z",
+  "generatedAt": "2026-10-18T23:15:07.928Z",
   "note": "Hash chain of the accepted tree. Re-run security:baseline after an intentional change.",
-  "chainRoot": "1c0f20263ccea673dccc8432878ebb99e31e33a436c9add44b9f793b17dfdf99",
+  "chainRoot": "4ed90bc8e67a5dce4a1abb5ca53b24e8f6f3074e34ea47ec7f71611a35a0df5c",
   "toolingHash": "d7405c755f19ed639d69fbf41017c7837f3f18501c35df4d068f22a71faa91c1",
   "fileCount": 38,
   "hashes": {
@@ -10,7 +10,7 @@
     ".github/workflows/verify.yml": "5c6e68559cc80e9ed6aaf82fff1bf0f96e4d9d3434df254388e852a27b40591b",
     ".gitignore": "1959c42eb9189cfe97b689e05bd2a1ea519cbedeaec04299b317759483e04253",
     "DOCTOR.ps1": "ac9aed32771fa62eaa08a252b1f88a43b18e82aa38f36bd52a06f2710b411f5e",
-    "README.md": "2e3293704ab5a759975de5cc9e05d4aa29b8ed77327d93211be302c12001e119",
+    "README.md": "470e121b665fe2e0745438f665dd633e3f8080eb1da264968a2bced640e1ce79",
     "START-WARBOARD-BOX.cmd": "2c833165175ba3590f76be8e91d4635960fc26570cfa7697ffe19b3129899fe4",
     "TERMINAL-GUIDE.md": "3cb44e3faf497e6738c32c74dc88ed6234fb4b7c2286a4dee9321e4b62368ab1",
     "config/settings.example.json": "4af103c5271eed6891a978540db3810722702848743ff0256c5f5da32795a9e2",

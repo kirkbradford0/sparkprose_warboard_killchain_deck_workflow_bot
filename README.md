@@ -63,6 +63,10 @@ npm start            # runs the security gate first, then Electron
 gate, clears inherited `ELECTRON_RUN_AS_NODE`, installs the runtime once if
 missing, then launches.
 
+**Stuck?** Run **`.\DOCTOR.ps1`** (checks node, Electron, security gate, data, git;
+`-Fix` installs the runtime, `-Sync` fetches/pulls and prints the push command,
+`-Launch` starts the app). Full copy-paste playbook: [`TERMINAL-GUIDE.md`](TERMINAL-GUIDE.md).
+
 **Publishing:** the repo is `kirkbradford0/sparkprose_warboard_killchain_deck_workflow_bot`.
 A local commit is prepared as a fast-forward; see [`docs/PUBLISH.md`](docs/PUBLISH.md)
 or run `scripts\publish-to-github.ps1`. The push needs your GitHub credential prompt.
