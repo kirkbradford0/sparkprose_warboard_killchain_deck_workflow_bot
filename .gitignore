@@ -5,6 +5,7 @@ node_modules/
 /.tmp-seed/
 /.tmp-shot/
 security/report.json
+security/bypass.log
 config/settings.json
 config/settings.selftest.json
 *.log

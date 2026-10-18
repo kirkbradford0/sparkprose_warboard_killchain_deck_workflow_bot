@@ -53,11 +53,14 @@ hash, counts, and per-finding remediation.
 
 ## Gates
 
-- `npm test` → `pretest` runs the gate, then `self-test` + core (16) + UI wiring (8).
+- `npm test` → `pretest` runs the gate, then `self-test` + core (16) + UI wiring (10).
 - `npm start` → `prestart` runs the gate.
 - `START-WARBOARD-BOX.cmd` → runs the gate before launching Electron.
-- Emergency hatch: `set SKIP_SECURITY=1` for a broken install. Documented, not
-  encouraged, and the report still records what was skipped.
+- **Bypass is not silent.** `SKIP_SECURITY=1` alone is refused. A bypass requires
+  `SKIP_SECURITY_REASON` (8+ characters), is written to `security/bypass.log`
+  with timestamp, host, user and reason, prints a conspicuous warning, and is
+  documented here as an emergency install-recovery path — never a production
+  shortcut. The log line is append-only and excluded from the hash baseline.
 
 ## Adding a rule
 
