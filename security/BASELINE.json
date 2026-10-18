@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-18T13:32:24.520Z",
+  "generatedAt": "2026-10-18T21:24:58.032Z",
   "note": "Hash chain of the accepted tree. Re-run security:baseline after an intentional change.",
-  "chainRoot": "b33c5014abe0b5b9f79e9d981e93efb2011b5c622a0f632e70a7492dd1671b74",
+  "chainRoot": "2a750ed353d4ceb07986d69e59defa35b32598d2a36c4ed1208efe546e9dbbdd",
   "toolingHash": "be5c0a168e0aca9af83bba5275c6ef0c5d5f46bb94c35ac69d8e9d6e3b76b1b8",
-  "fileCount": 32,
+  "fileCount": 33,
   "hashes": {
     ".gitattributes": "c4cf3852eeec95642165531597bcd5e8bc528a0ce5a719c482649a41f5cb60a4",
     ".github/workflows/verify.yml": "5c6e68559cc80e9ed6aaf82fff1bf0f96e4d9d3434df254388e852a27b40591b",
@@ -22,6 +22,7 @@
     "preload.js": "128ae3e6548e652ef381a9863a1634a5c16cc449c1a7169bd449a87a10bccf38",
     "scripts/demo.js": "5a2ad99914c03bf9db0a73dea8440c794ffcd3d09c3be6a2d76ccc59534bc989",
     "scripts/publish-to-github.ps1": "d0d055b0d4b15ec8d1b80ab2a72a4f3771a139fc6d396b2d7db55cd3d272b7c7",
+    "scripts/seed-ethical-launch-box.js": "1f5787f4004a81da938d5cbc4c7d4880094add540fee5ffe290f4171f6a8e2b1",
     "scripts/seed-warboards.js": "13b220118782e6064cb245aaa1d3e60c710aae3aaf2bc61dce5f06c9438ae4af",
     "security/attest.js": "00578c39d1a503b501a968f42887bc3b671285aa34bac39485f5a676ed0e666f",
     "security/rules.js": "cb9e75ded53a043eacd7a8300a3b42d9fb68a714f4e72e13b21aba3bcb0639e8",
