@@ -14,6 +14,9 @@
     "pretest": "node security/run.js --gate --quiet",
     "test": "node security/self-test.js && node test/core.test.js && node test/ui-contract.test.js",
     "seed": "node scripts/seed-warboards.js",
+    "seed:ethical": "node scripts/seed-ethical-launch-box.js",
+    "seed:governance": "node scripts/seed-governance-warboard.js",
+    "doctor": "powershell -NoProfile -ExecutionPolicy Bypass -File DOCTOR.ps1",
     "demo": "node scripts/demo.js",
     "publish:github": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-to-github.ps1",
     "selftest": "electron . --selftest"
