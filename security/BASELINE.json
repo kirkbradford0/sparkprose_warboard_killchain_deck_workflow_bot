@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-19T03:06:47.942Z",
+  "generatedAt": "2026-10-19T03:09:12.971Z",
   "note": "Hash chain of the accepted tree. Re-run security:baseline after an intentional change.",
-  "chainRoot": "d52750a5649b80e74511145d1bc57ebfac2a41b9b897dbb5d2cbe0c586fa8904",
+  "chainRoot": "b9d9bd36832e9211b0e3beb9e06c17393995f1e46b91fec1b1fd3ba1fed23c8f",
   "toolingHash": "988eb080ef5de55c5aab4ebdfda9566843f96e11e0fb52726462978c014c42b7",
   "fileCount": 40,
   "hashes": {
@@ -10,7 +10,7 @@
     ".github/workflows/verify.yml": "5c6e68559cc80e9ed6aaf82fff1bf0f96e4d9d3434df254388e852a27b40591b",
     ".gitignore": "1959c42eb9189cfe97b689e05bd2a1ea519cbedeaec04299b317759483e04253",
     "DOCTOR.ps1": "ac9aed32771fa62eaa08a252b1f88a43b18e82aa38f36bd52a06f2710b411f5e",
-    "PUSH-TO-GITHUB.cmd": "ae3b0a190ddfe91d71c1be493d33801d8f662d727bb6021834d91f3283bab458",
+    "PUSH-TO-GITHUB.cmd": "b026bea4dcf03417585038084bbca2e9fe8b2429713793af0486b20db00625c1",
     "README.md": "470e121b665fe2e0745438f665dd633e3f8080eb1da264968a2bced640e1ce79",
     "SHOW-DECKS.cmd": "e57c8864e40926b0c7d0f15ff0a78b57644364a4fd949170e63bbe7321d8c0c8",
     "START-WARBOARD-BOX.cmd": "2c833165175ba3590f76be8e91d4635960fc26570cfa7697ffe19b3129899fe4",
