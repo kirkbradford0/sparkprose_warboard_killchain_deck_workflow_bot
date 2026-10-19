@@ -183,7 +183,7 @@ function checkBinaries(files, findings) {
   const banned = /\.(exe|dll|msi|scr|pif|com|bat|cmd|ps1|vbs|jar|msix)$/i;
   // Two reviewed scripts are allowed: the launcher and the publish helper.
   // Everything else executable is a finding until it is reviewed and added here.
-  const allowed = new Set(["START-WARBOARD-BOX.cmd", "scripts/publish-to-github.ps1", "DOCTOR.ps1", "SHOW-DECKS.cmd"]);
+  const allowed = new Set(["START-WARBOARD-BOX.cmd", "scripts/publish-to-github.ps1", "DOCTOR.ps1", "SHOW-DECKS.cmd", "PUSH-TO-GITHUB.cmd"]);
   for (const rel of files) {
     if (!banned.test(rel)) continue;
     if (allowed.has(rel.replace(/\\/g, "/"))) continue;
