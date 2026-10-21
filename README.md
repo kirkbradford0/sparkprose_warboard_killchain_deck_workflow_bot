@@ -216,3 +216,15 @@ warboard-box/
   docs/ARCHITECTURE.md · SECURITY.md · TAILSCALE.md · FOLDER-STRUCTURE.md
   examples/                  real generated deck + shipped box
 ```
+
+---
+
+## STANDING ORDERS — Passoff Protocol (set 2026-10-21 15:56 MDT by Kirk, via Hermes on CaptainLaptopHP)
+
+**State note 2026-10-21 ~15:55 MDT:** The Lenovo's pushes DID land — 9 commits through `4cd6f9e` (Oct 18 21:09 MDT), 90 files, Warboard Box NEON-90 v1.1. The HP clone was stale because GitHub Desktop on CaptainLaptopHP had DNS failures (`Could not resolve host: github.com`, 10-18 23:26 MDT log). If a clone looks empty/stale here: `git fetch origin` before concluding anything didn't push.
+
+**TWO PASSOFF TYPES (standing order):**
+
+1. **First-class passoff** — the deep, in-depth handoff. Full context: what was built, why, state of all workstreams, how to resume. Use when ending a major work phase or switching machines/agents.
+
+2. **Hitchhiker** — a quick context + memory update thrown ("hitched") into GitHub. Just the fast snapshot of what's been done so far, pushed to the relevant repo. Zero ceremony. Use between work bursts.
